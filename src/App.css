@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:root {
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Estilo scroll bar navegador */
+
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(184, 184, 184); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(116, 116, 116);
+  border: 3px solid rgb(116, 116, 116);
+}
+
+/* Estilo scroll bar caixas de texto menores */
+
+.textScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.textScroll::-webkit-scrollbar-track {
+  background-color: rgb(116, 116, 116);
+  width: 2px;
+}
+
+.textScroll::-webkit-scrollbar-thumb {
+  background-color: #e1ff26;
+  border: 3px solid #e1ff26;
+}
+
+/* Estilo scroll bar caixas de depoimentos */
+
+.depositionScroll::-webkit-scrollbar {
+  width: 0px;
+}
+
+.depositionScroll::-webkit-scrollbar-track {
+  background-color: rgb(116, 116, 116);
+  width: 0px;
+}
+
+.depositionScroll::-webkit-scrollbar-thumb {
+  background-color: #e1ff26;
+  border: 3px solid #e1ff26;
+}
+
+.containerGirlsCardLinkToSection {
+  margin-top: -60px !important;
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "Architects Daughter", sans-serif !important;
+  font-style: italic !important;
+}
+
+.form-control {
+  color: rgba(0, 0, 0);
+  font-family: "Architects Daughter", sans-serif !important;
+}
