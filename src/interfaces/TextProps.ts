@@ -15,3 +15,10 @@ export interface ITextProps {
   fontWeight?: string;
   style?: CSSProperties;
 }
+
+export interface ITextMarkProps extends ITextProps {
+  children: React.ReactNode;
+  color: "White" | "Yellow" | "Blue" | "Green" | string;
+  display?: "flex" | "block" | "initial";
+  isVisible?: boolean; // Nova prop para controlar se o componente está visível
+}

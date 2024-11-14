@@ -1,37 +1,41 @@
-import { ITextProps } from "@/interfaces/TextProps";
+import { ITextMarkProps } from "@/interfaces/TextProps";
 import { colors } from "@/styles/colors";
-import styled from "styled-components";
+import { useEffect, useRef, useState } from "react";
+import { TextMarkSC } from "./style"; // Ajuste o caminho conforme necessário
 
-const TextMarkSC = styled.span<ITextMarkProps>`
-  display: ${(props) => props.display};
-  align-items: center;
-
-  padding: 0px 4px 0px 4px;
-  margin: 0px !important;
-  border-radius: 2px;
-
-  cursor: cell;
-
-  background-color: ${(props) => props.color};
-
-  @media (max-width: 768px) {
-    fill: ${colors.white};
-    height: fit-content;
-  }
-`;
-
-export interface ITextMarkProps extends ITextProps {
-  children: React.ReactNode;
-  color?: "White" | "Yellow" | "Blue" | "Green" | string; 
-  display?: "flex" | "block" | "initial";
-}
-
-const Text = ({
+const TextMark = ({
   children,
   color,
   fontFamily,
   display = "initial",
 }: ITextMarkProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const markRef = useRef<HTMLSpanElement>(null);
+
+  // Função do IntersectionObserver para verificar se o componente está visível
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setIsVisible(true); // Ativa a animação de preenchimento
+      }
+    });
+
+    if (markRef.current) {
+      observer.observe(markRef.current);
+    }
+
+    return () => {
+      if (markRef.current) {
+        observer.unobserve(markRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(isVisible);
+  }, [isVisible]);
+
   let markColor: string = "#ffffff40";
 
   const colorMap: Record<string, string> = {
@@ -50,12 +54,16 @@ const Text = ({
   }
 
   return (
-    <>
-      <TextMarkSC color={markColor} fontFamily={fontFamily} display={display}>
-        {children}
-      </TextMarkSC>
-    </>
+    <TextMarkSC
+      ref={markRef}
+      color={markColor}
+      fontFamily={fontFamily}
+      display={display}
+      isVisible={isVisible}
+    >
+      {children}
+    </TextMarkSC>
   );
 };
 
-export default Text;
+export default TextMark;
