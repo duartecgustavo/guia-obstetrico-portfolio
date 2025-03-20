@@ -5,6 +5,7 @@ export interface ITextProps {
   children: ReactElement | ReactNode;
   fontSize?: string;
   color?: string;
+  textRotation?: number;
   alignText?: "left" | "right" | "center" | "justify";
   fontFamily?:
     | "Inter"
@@ -18,7 +19,7 @@ export interface ITextProps {
 
 export interface ITextMarkProps extends ITextProps {
   children: React.ReactNode;
-  color: "White" | "Yellow" | "Blue" | "Green" | string;
+  color?: "White" | "Yellow" | "Blue" | "Green" | string;
   display?: "flex" | "block" | "initial";
-  isVisible?: boolean; // Nova prop para controlar se o componente está visível
+  isVisible?: boolean;
 }

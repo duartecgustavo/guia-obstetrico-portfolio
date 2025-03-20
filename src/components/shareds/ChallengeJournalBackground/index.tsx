@@ -6,6 +6,9 @@ export default function ChallengeJournalBackground({
   top,
   bottom,
   backgroundColor,
+  backgroundPage = "#f9f6f6",
+  rotationPage = "",
+  pageShadow = "",
   url,
   zIndex,
 }: IChallengeJournalBackground) {
@@ -16,11 +19,13 @@ export default function ChallengeJournalBackground({
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: "#f9f6f6",
+          backgroundColor: backgroundPage,
           position: "absolute",
           zIndex: 1,
           left: 0,
           top: 0,
+          transform: rotationPage,
+          boxShadow: pageShadow,
         }}
       />
       <div
@@ -64,6 +69,9 @@ interface IChallengeJournalBackground {
   top?: number;
   bottom?: number;
   backgroundColor?: string;
+  backgroundPage?: string;
+  rotationPage?: string;
+  pageShadow?: string;
   url?: string;
   zIndex?: number;
 }

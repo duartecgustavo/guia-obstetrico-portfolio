@@ -8,6 +8,7 @@ const TextSC = styled.p<{
   alignText: "left" | "right" | "center" | "justify";
   fontWeight: string;
   fontFamily: string;
+  textRotation?: number;
 }>`
   font-size: ${({ fontSize }) => fontSize};
   line-height: ${({ fontSize }) => `calc(${fontSize} + 16px)`};
@@ -15,6 +16,7 @@ const TextSC = styled.p<{
   text-align: ${({ alignText }) => alignText};
   font-weight: ${({ fontWeight }) => fontWeight};
   font-family: ${({ fontFamily }) => fontFamily};
+  transform: ${({ textRotation }) => `rotate(${textRotation}deg)`};
 
   cursor: cell;
 
@@ -28,7 +30,8 @@ const TextSC = styled.p<{
   }
 `;
 
-export default function Text({
+export default function 
+Text({
   children,
   fontSize = "16px",
   color = colors.grayFontBody,
@@ -36,6 +39,7 @@ export default function Text({
   fontWeight = "normal",
   fontFamily = "Inter",
   style,
+  textRotation = 0,
 }: ITextProps) {
   return (
     <TextSC
@@ -44,6 +48,7 @@ export default function Text({
       alignText={alignText}
       fontWeight={fontWeight}
       fontFamily={fontFamily}
+      textRotation={textRotation}
       style={style}
     >
       {children}

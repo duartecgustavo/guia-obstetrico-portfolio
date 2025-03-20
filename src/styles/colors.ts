@@ -15,9 +15,11 @@ export const colors = {
   graySecondary: "#F9F6F6",
   grayFontBody: "#737373",
 
+  lightBlue22: "rgba(239, 243, 249, 0.8)",
   lightBlue: "#EFF3F9",
   green: "#49bdcf",
   lightGreen: "#e2eff1",
+  lightGreen20: "rgba(73, 189, 207, 0.6)",
   lightYellow: "#f6f4ea",
   yellow: "#FFF5E5",
 };

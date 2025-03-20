@@ -7,7 +7,6 @@ import { colors } from "@/styles/colors";
 export default function AppDemonstrationDetails() {
   return (
     <Content style={{ marginBlock: 96 }}>
-      {/* Encapsualador do conteudo que vai dar o tamanho */}
       <div
         style={{
           position: "relative",
@@ -76,7 +75,12 @@ export default function AppDemonstrationDetails() {
           <IphoneImage
             src={iphone_lado_direito}
             alt=""
-            style={{ width: "100%", position: "absolute", right: -24, top: -96 }}
+            style={{
+              width: "100%",
+              position: "absolute",
+              right: -24,
+              top: -96,
+            }}
             styleBoxImage={{
               width: "20%",
               position: "relative",
@@ -178,7 +182,7 @@ export default function AppDemonstrationDetails() {
             salvando incontáveis vidas.
           </Text>
         </Box>
-        {/* Background duo colocar, camada 0 */}
+
         <div
           style={{
             height: "100%",
@@ -191,7 +195,6 @@ export default function AppDemonstrationDetails() {
           <div style={{ width: "65%", backgroundColor: "#49bdcf30" }} />
           <div style={{ width: "35%", backgroundColor: "#99cfdb30" }} />
         </div>
-        {/* Background duo colocar */}
       </div>
     </Content>
   );

@@ -1,7 +1,7 @@
 import { ITextMarkProps } from "@/interfaces/TextProps";
 import { colors } from "@/styles/colors";
 import { useEffect, useRef, useState } from "react";
-import { TextMarkSC } from "./style"; // Ajuste o caminho conforme necessário
+import { TextMarkSC } from "./style";
 
 const TextMark = ({
   children,
@@ -12,12 +12,11 @@ const TextMark = ({
   const [isVisible, setIsVisible] = useState(false);
   const markRef = useRef<HTMLSpanElement>(null);
 
-  // Função do IntersectionObserver para verificar se o componente está visível
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       if (entry.isIntersecting) {
-        setIsVisible(true); // Ativa a animação de preenchimento
+        setIsVisible(true);
       }
     });
 

@@ -1,23 +1,28 @@
 import {
   AppDemonstration,
   AppDemonstrationDetails,
+  DeveloperStatement,
+  GuideToApp,
   Intro,
   Solution,
   TheBrazilChallenge,
   TheWorldChallenge,
 } from "@/components/pages";
-import {
-  Banner,
-  Footer,
-  LinkToApp,
-  Navbar,
-  QRcodeToApp,
-} from "@/components/sections";
+import { Banner, Footer, Navbar } from "@/components/sections";
+import { ButtonUp } from "@/components/shareds";
 import { colors } from "@/styles/colors";
+import styled from "styled-components";
+
+const AppContainerSc = styled.div`
+  background: ${colors.white};
+  position: "relative";
+  display: "flex";
+  flexdirection: "column";
+`;
 
 function App() {
   return (
-    <div style={{background: colors.white}}>
+    <AppContainerSc>
       <Navbar />
       <Banner />
       <Intro />
@@ -26,10 +31,11 @@ function App() {
       <Solution />
       <AppDemonstration />
       <AppDemonstrationDetails />
-      <LinkToApp /> 
-      <QRcodeToApp /> 
+      <DeveloperStatement />
+      <GuideToApp />
       <Footer />
-    </div>
+      <ButtonUp />
+    </AppContainerSc>
   );
 }
 

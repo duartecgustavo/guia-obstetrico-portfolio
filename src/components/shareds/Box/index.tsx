@@ -9,7 +9,6 @@ export const BoxSC = styled.div`
   gap: 16px;
   padding: 24px;
 
-
   @media (max-width: 1024px) {
     gap: 12px;
   }

@@ -8,6 +8,7 @@ const TitleSC = styled.p<{
   alignText: "left" | "right" | "center" | "justify";
   fontWeight: string;
   fontFamily: string;
+  textRotation?: number;
 }>`
   font-size: ${({ fontSize }) => fontSize};
   line-height: ${({ fontSize }) => `calc(${fontSize} + 16px)`};
@@ -16,6 +17,7 @@ const TitleSC = styled.p<{
   font-weight: ${({ fontWeight }) => fontWeight};
   margin-bottom: 4px !important;
   font-family: ${({ fontFamily }) => fontFamily};
+  transform: ${({ textRotation }) => `rotate(${textRotation}deg)`};
 
   cursor: cell;
 
@@ -38,6 +40,7 @@ export default function Title({
   fontWeight = "normal",
   fontFamily = "Inter",
   style,
+  textRotation = 0,
 }: ITextProps) {
   return (
     <TitleSC
@@ -47,6 +50,7 @@ export default function Title({
       fontWeight={fontWeight}
       fontFamily={fontFamily}
       style={style}
+      textRotation={textRotation}
     >
       {children}
     </TitleSC>

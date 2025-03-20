@@ -9,4 +9,4 @@ export { default as Title } from "./Title";
 export { default as TitleSection } from "./TitleSection";
 export { default as Video } from "./Video";
 export { default as IphoneImage } from "./IphoneImage";
-
+export { default as ButtonUp } from "./ButtonUp";
