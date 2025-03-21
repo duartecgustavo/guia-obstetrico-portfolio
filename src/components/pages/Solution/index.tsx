@@ -36,9 +36,9 @@ export default function TheWorldChallenge() {
   }, []);
 
   return (
-    <Content background={colors.white}>
+    <Content background={colors.white} >
       <Container>
-        <Box style={{ paddingBlock: 48 }}>
+        <Box style={{ paddingBlock: "48px" }}>
           <Title
             fontWeight="bold"
             fontFamily="Bebas Neue"

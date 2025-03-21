@@ -26,6 +26,7 @@ const TextSC = styled.p<{
   }
 
   @media (max-width: 768px) {
+    font-size: 18px;
     line-height: ${({ fontSize }) => `calc(${fontSize} + 8px)`};
   }
 `;

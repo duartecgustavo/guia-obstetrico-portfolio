@@ -28,7 +28,7 @@ const TitleSC = styled.p<{
 
   @media (max-width: 768px) {
     line-height: ${({ fontSize }) => `calc(${fontSize} + 8px)`};
-    font-size: 20px;
+    font-size: 32px;
   }
 `;
 

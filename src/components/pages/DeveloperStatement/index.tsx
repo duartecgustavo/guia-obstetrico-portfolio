@@ -27,7 +27,7 @@ export default function AppDemonstrationDetails() {
 
   return (
     <Content background={colors.white}>
-      <Container>
+      <Container style={{ paddingBlock: "92px" }}>
         <Box>
           <Title
             fontSize="24px"

@@ -9,53 +9,71 @@ import {
   Title,
 } from "@/components/shareds";
 import { colors } from "@/styles/colors";
-// import { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 export default function AppDemonstration() {
-  // const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowSize(window.innerWidth);
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
-
   return (
     <Content>
       <Container
-        style={{
-          paddingInline: 0,
-          display: "flex",
-          alignItems: "end",
-        }}
+        style={
+          isMobile
+            ? { paddingInline: 0, display: "flex", alignItems: "center" }
+            : {
+                paddingInline: 0,
+                display: "flex",
+                alignItems: "end",
+                marginBlock: "64px",
+              }
+        }
       >
         <Box
-          style={{
-            background: "#49BDCF",
-            display: "flex",
-            alignSelf: "flex-end",
-            flexDirection: "row",
-            width: "80%",
-            zIndex: 1,
-            top: -96,
-          }}
+          style={
+            isMobile
+              ? {
+                  background: "#49BDCF",
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  zIndex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }
+              : {
+                  background: "#49BDCF",
+                  display: "flex",
+                  alignSelf: "flex-end",
+                  flexDirection: "row",
+                  width: "80%",
+                  zIndex: 1,
+                }
+          }
         >
-          <IphoneImage
-            src={iphone_frente}
-            alt=""
-            style={{ position: "absolute", width: "200%", left: -110 }}
-            styleBoxImage={{
-              width: "10%",
-              position: "relative",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
+          {isMobile && (
+            <IphoneImage
+              src={iphone_frente}
+              alt=""
+              style={{ width: "100%" }}
+              styleBoxImage={{
+                width: "50%",
+                marginBlock: "36px",
+              }}
+            />
+          )}
+          {!isMobile && (
+            <IphoneImage
+              src={iphone_frente}
+              alt=""
+              style={{ position: "absolute", width: "200%", left: -110 }}
+              styleBoxImage={{
+                width: "10%",
+                position: "relative",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            />
+          )}
+
           <div
             style={{
               width: "90%",

@@ -1,10 +1,12 @@
 import BaixarApple from "@/assets/baixar-apple.png";
 import BaixarPlayStore from "@/assets/baixar-play-store.png";
 import iPhone_15_pro from "@/assets/iPhone-15-pro.png";
-import QRCode from "@/assets/QRCode.png";
+import PlayStore from "@/assets/play-store.png";
+import AppleStore from "@/assets/apple-store.png";
 import { IphoneImage, Text, Title } from "@/components/shareds";
 import { colors } from "@/styles/colors";
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 
 export const ContainerSC = styled.div`
   width: 100%;
@@ -108,18 +110,20 @@ export default function GuideToApp() {
         height="auto"
         padding="none"
       >
-        <IphoneImage
-          src={iPhone_15_pro}
-          alt=""
-          style={{ width: "60%", height: "100%" }}
-          styleBoxImage={{
-            width: "100%",
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
+        {!isMobile && (
+          <IphoneImage
+            src={iPhone_15_pro}
+            alt=""
+            style={{ width: "80%", height: "100%" }}
+            styleBoxImage={{
+              width: "100%",
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
+        )}
       </BoxSC>
       <BoxSC backgroundColor={colors.lightGreen20} width="70%" height="auto">
         <div
@@ -154,11 +158,14 @@ export default function GuideToApp() {
           </Text>
         </div>
       </BoxSC>
-      <BoxSC backgroundColor={colors.lightGreen20} width="30%" height="auto">
-        <QRcodeToAppSC>
-          <IconQRCodeSC src={QRCode} alt="" />
-        </QRcodeToAppSC>
-      </BoxSC>
+      {!isMobile && (
+        <BoxSC backgroundColor={colors.lightGreen20} width="30%" height="auto">
+          <QRcodeToAppSC>
+            <IconQRCodeSC src={PlayStore} alt="" />
+          </QRcodeToAppSC>
+        </BoxSC>
+      )}
+
       <BoxSC backgroundColor={colors.lightBlue} width="70%" height="auto">
         <BoxLinksSC>
           <Title
@@ -168,7 +175,7 @@ export default function GuideToApp() {
             fontFamily="Bebas Neue"
             fontSize="36px"
           >
-            Não perca mais tempo!
+            Acesse pela PLay Store
           </Title>
           <div
             style={{
@@ -178,9 +185,54 @@ export default function GuideToApp() {
               width: "100%",
               height: "auto",
               flexDirection: "column",
+              cursor: "pointer",
             }}
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/details?id=br.einstein.appobstetricia&hl=pt_BR",
+                "_blank"
+              )
+            }
           >
             <ImageBaixarPlayStore src={BaixarPlayStore} alt="" />
+          </div>
+        </BoxLinksSC>
+      </BoxSC>
+      {!isMobile && (
+        <BoxSC backgroundColor={colors.lightBlue} width="30%" height="auto">
+          <QRcodeToAppSC>
+            <IconQRCodeSC src={AppleStore} alt="" />
+          </QRcodeToAppSC>
+        </BoxSC>
+      )}
+      <BoxSC backgroundColor={colors.lightGreen20} width="70%" height="auto">
+        <BoxLinksSC>
+          <Title
+            alignText="center"
+            fontWeight="bold"
+            color={colors.grayScale55}
+            fontFamily="Bebas Neue"
+            fontSize="36px"
+          >
+            Acesse pela Apple Store
+          </Title>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+              width: "100%",
+              height: "auto",
+              flexDirection: "column",
+              cursor: "pointer",
+            }}
+            onClick={() =>
+              window.open(
+                "https://apps.apple.com/br/app/guia-obst%C3%A9trico/id1621361749",
+                "_blank"
+              )
+            }
+          >
             <ImageBaixarPhone src={BaixarApple} alt="" />
           </div>
         </BoxLinksSC>

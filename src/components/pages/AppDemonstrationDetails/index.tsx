@@ -1,8 +1,116 @@
+import iPhone_15_pro from "@/assets/iPhone-15-pro.png";
 import iphone_pra_cada_lado from "@/assets/iphone_dois_pra_cada_lado.png";
 import iphone_lado_direito from "@/assets/iphone_lado_direito.png";
 import { Content } from "@/components/sections";
-import { Box, IphoneImage, Text, TextMark, Title } from "@/components/shareds";
+import { IphoneImage, Text, TextMark, Title } from "@/components/shareds";
 import { colors } from "@/styles/colors";
+import { isMobile } from "react-device-detect";
+import styled from "styled-components";
+
+const BoxDemonstrationApp = styled.div`
+  display: flex;
+  position: relative;
+  width: 90%;
+  gap: 16px;
+  padding: 24px;
+  background: #f9f6f6;
+  flex-direction: row;
+  z-index: 1;
+  align-self: flex-end;
+  top: -96px;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+const BoxDemonstrationAppText = styled.div`
+  width: 100%;
+  padding-left: 24px;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 100%;
+  }
+`;
+const BoxDemonstrationProfiles = styled.div`
+  display: flex;
+  position: relative;
+  width: 90%;
+  gap: 16px;
+  padding: 24px;
+  background: #f9f6f6;
+  flex-direction: row;
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+const BoxDemonstrationProfilesText = styled.div`
+  width: 70%;
+  padding-left: 24px;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 100%;
+  }
+`;
+const BoxDemonstrationConclusion = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: #f9f6f6;
+  align-self: center;
+  width: 70%;
+  z-index: 1;
+  bottom: -96px;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 100%;
+  }
+`;
 
 export default function AppDemonstrationDetails() {
   return (
@@ -14,23 +122,8 @@ export default function AppDemonstrationDetails() {
           flexDirection: "column",
         }}
       >
-        <Box
-          style={{
-            background: "#F9F6F6",
-            display: "flex",
-            alignSelf: "flex-end",
-            flexDirection: "row",
-            width: "90%",
-            zIndex: 1,
-            top: -96,
-          }}
-        >
-          <div
-            style={{
-              width: "80%",
-              paddingLeft: 24,
-            }}
-          >
+        <BoxDemonstrationApp>
+          <BoxDemonstrationAppText>
             <Title
               fontWeight="bold"
               fontFamily="Bebas Neue"
@@ -71,52 +164,56 @@ export default function AppDemonstrationDetails() {
                 </Text>
               </li>
             </ul>
-          </div>
-          <IphoneImage
-            src={iphone_lado_direito}
-            alt=""
-            style={{
-              width: "100%",
-              position: "absolute",
-              right: -24,
-              top: -96,
-            }}
-            styleBoxImage={{
-              width: "20%",
-              position: "relative",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
-        </Box>
-        <Box
-          style={{
-            background: "#F9F6F6",
-            display: "flex",
-            flexDirection: "row",
-            width: "90%",
-            zIndex: 1,
-          }}
-        >
-          <IphoneImage
-            src={iphone_pra_cada_lado}
-            alt=""
-            style={{ width: "110%", position: "absolute" }}
-            styleBoxImage={{
-              width: "30%",
-              position: "relative",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
-          <div
-            style={{
-              width: "70%",
-              paddingLeft: 24,
-            }}
-          >
+          </BoxDemonstrationAppText>
+          {!isMobile && (
+            <IphoneImage
+              src={iphone_lado_direito}
+              alt=""
+              style={{
+                width: "80%",
+                position: "absolute",
+                right: -24,
+                top: -96,
+              }}
+              styleBoxImage={{
+                width: "20%",
+                position: "relative",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            />
+          )}
+          {isMobile && (
+            <IphoneImage
+              src={iPhone_15_pro}
+              alt=""
+              style={{
+                width: "100%",
+              }}
+              styleBoxImage={{
+                width: "60%",
+                marginBlock: "24px",
+              }}
+            />
+          )}
+        </BoxDemonstrationApp>
+        <BoxDemonstrationProfiles>
+          {!isMobile && (
+            <IphoneImage
+              src={iphone_pra_cada_lado}
+              alt=""
+              style={{ width: "80%", position: "absolute" }}
+              styleBoxImage={{
+                width: "30%",
+                position: "relative",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            />
+          )}
+          <BoxDemonstrationProfilesText>
             <Title
               fontWeight="bold"
               fontFamily="Bebas Neue"
@@ -153,18 +250,20 @@ export default function AppDemonstrationDetails() {
                 </Text>
               </li>
             </ul>
-          </div>
-        </Box>
-        <Box
-          style={{
-            background: "#F9F6F6",
-            display: "flex",
-            alignSelf: "center",
-            width: "70%",
-            zIndex: 1,
-            bottom: -96,
-          }}
-        >
+          </BoxDemonstrationProfilesText>
+          {isMobile && (
+            <IphoneImage
+              src={iphone_pra_cada_lado}
+              alt=""
+              style={{ width: "100%" }}
+              styleBoxImage={{
+                marginBlock: "24px",
+                width: "60%",
+              }}
+            />
+          )}
+        </BoxDemonstrationProfiles>
+        <BoxDemonstrationConclusion>
           <Text fontFamily="Inter" color={colors.grayFontBody}>
             Com essas duas abordagens, o aplicativo se torna uma ferramenta
             valiosa na mão tanto das gestantes quanto dos profissionais de
@@ -181,7 +280,7 @@ export default function AppDemonstrationDetails() {
             <TextMark>redução dos índices de mortalidade gestacional</TextMark>,
             salvando incontáveis vidas.
           </Text>
-        </Box>
+        </BoxDemonstrationConclusion>
 
         <div
           style={{

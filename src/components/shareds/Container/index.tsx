@@ -15,7 +15,7 @@ export const ContainerSC = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding-inline: 48px;
+    padding-inline: 24px;
     padding-block: 12px;
   }
 `;
